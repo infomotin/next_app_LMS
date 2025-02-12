@@ -24,7 +24,7 @@ const poppins = Inter({
 });
 export default async function RootLayout({ children }) {
   const conn = await connect();
-  console.log(conn);
+  // console.log(conn);
   return (
     <html lang="en">
       <body
