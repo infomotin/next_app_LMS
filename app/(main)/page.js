@@ -176,7 +176,7 @@ const HomePage = () => {
                     })}
                 </div>
             </section>
-
+            <Support />
             {/* Courses */}
             <section id="courses" className="container space-y-6   md:py-12 lg:py-24">
                 <div className="flex items-center justify-between">
