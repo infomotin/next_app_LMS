@@ -20,7 +20,7 @@ const courseSchema = new Schema({
         required: true
     },
     modules: {
-        type: Schema.ObjectId,
+        type: [Schema.ObjectId],
         required: true
     },
     price: {
@@ -31,10 +31,7 @@ const courseSchema = new Schema({
         type: Boolean,
         required: true
     },
-    category: {
-        type: Schema.ObjectId,
-        required: true
-    },
+    category: {type: Schema.ObjectId, ref: "Category",},
     instructor: {
         type: Schema.ObjectId,
         required: true
@@ -59,8 +56,12 @@ const courseSchema = new Schema({
         type: Date,
         required: true
     },
-    
-    
+    _v: {
+        type: Number,
+        required: true
+    }
+},{
+    timestamps: true
 });
 
 export const Course = mongoose.models.Course ?? mongoose.model("Course", courseSchema);
