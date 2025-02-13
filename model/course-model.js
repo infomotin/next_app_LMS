@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-
+import { Module } from "./modules-model";
 
 const courseSchema = new Schema({
     title: {
@@ -20,7 +19,7 @@ const courseSchema = new Schema({
         required: true
     },
     modules: {
-        type: [Schema.ObjectId],
+        type: Schema.ObjectId,ref:"Module",
         required: true
     },
     price: {
@@ -33,13 +32,13 @@ const courseSchema = new Schema({
     },
     category: {type: Schema.ObjectId, ref: "Category",},
     instructor: {
-        type: Schema.ObjectId,
+        type: Schema.ObjectId, ref: "User",
         required: true
     },
-    testimonials: {
-        type: [Schema.ObjectId],
+    testimonials: [{
+        type: Schema.ObjectId, ref: "Testimonial",
         required: true
-    },
+    }],
     quizSet: {
         type: Schema.ObjectId,
         required: true
