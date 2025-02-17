@@ -29,3 +29,33 @@ export async function getCourses() {
         
     } 
 }
+
+export async function getCoursesDetails(id) {
+    console.log('inside getCoursesDetails:',id);
+    try {
+        const course = await Course.findById(id).select(["title", "subtitle", "thumbnail","modules","instructor","category","price"])
+        .populate({
+            path: "category",
+            model: Category
+        })
+        .populate({
+            path: "instructor",
+            model: User
+        })
+        .populate({ 
+            path: "testimonials",
+            model: Testimonial,
+            populate: {
+                path: "userId",
+                model: User
+            }
+        })
+        .populate({
+            path: "modules",
+            model: Module
+        }).lean();
+        return replaceMongoIdInObject(course);
+    } catch (error) {
+        console.log(error); 
+    } 
+}
