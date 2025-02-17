@@ -4,7 +4,7 @@ import  Image from 'next/image';
 
 const Support = () => {
     return (
-        <div className="bg-darkBlue text-black py-5 px-5 md:py-6 md:px-6 border-b border-gray-900 " >
+        <div className="bg-darkBlue text-black py-5 px-5 md:py-6 md:px-6" >
             <div className='max-w-7xl mx-auto flex flex-col md:flex-row intems-center space-y-12 md:space-y-0 md:space-x-12 '>
                 <div className='flex-1'>
                     <p className='mt-5 text-3xl font-bold leading-tight text-gray-900 font-popins'>

@@ -5,7 +5,7 @@ import FilterCourseMobile from "./_components/FilterCourseMobile";
 import ActiveFilters from "./_components/ActiveFilters";
 import FilterCourse from "./_components/FilterCourse";
 import CourseCard from "@/app/(main)/courses/_components/CourseCard";
-import {getCourses} from "@/queries/courses";  
+import { getCourses } from "@/queries/courses";
 const CoursesPage = async () => {
     const courses = await getCourses();
     return (
@@ -41,7 +41,7 @@ const CoursesPage = async () => {
                     <div className="lg:col-span-3 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
                         {courses.map((course) => {
                             return (
-                                <CourseCard key={course.id} course={course} /> 
+                                <CourseCard key={course.id} course={course} />
                             );
                         })}
                     </div>
