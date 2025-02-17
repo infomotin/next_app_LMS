@@ -23,11 +23,11 @@ const MainLayout = ({ children }) => {
     return (
         <div className='flex  min-h-screen flex-col'>
             <header className='z-40 bg-blackground/60 backdrop-blur-md fixed top-0 left-0 right-0 border-b border-muted-foreground'>
-                <div className='container flex flex-col md:flex-row items-center justify-between gap-4 md:flex-row py-6'>
+                <div className='container flex h-20 items-center justify-between'>
                     <MainNav items={navItems} />
                 </div>
             </header> 
-            <main>{children}</main>
+            <main className='flex-1 pt-20 flex flex-col '>{children}</main>
             <SiteFooter />
         </div>
     );

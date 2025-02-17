@@ -7,7 +7,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const CourseCard = ({index, course}) => {
-    console.log(course?.modules.duration);
+    // console.log(course?.modules?.duration);
     return (
         <Link key={course?.id} href={`/courses/${course?.id}`}>
             <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
@@ -29,7 +29,7 @@ const CourseCard = ({index, course}) => {
                             <div>
                                 <BookOpen className="w-4" />
                             </div>
-                            <span>{course?.modules.duration} Chapters</span>
+                            <span>{course?.modules?.duration} Chapters</span>
                         </div>
                     </div>
  

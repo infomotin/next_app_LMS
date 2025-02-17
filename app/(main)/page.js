@@ -3,17 +3,15 @@ import Element from "@/components/element";
 import { SectionTitle } from "@/components/section-title";
 import Support from "@/components/support";
 import { Button, buttonVariants } from "@/components/ui/button";
-
 import { cn } from "@/lib/utils";
-
 import { ArrowRightIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import {getCourses} from "@/queries/courses";   
+import CategoryCard from "@/app/(main)/categorys/_components/CategoryCard";
 import CourseCard from "@/app/(main)/courses/_components/CourseCard";
-import CategoryCard from "@/app/(main)/courses/_components/CategoryCard";
 import {getCategories} from "@/queries/categories";
+import {getCourses} from "@/queries/courses";  
 
 // const categories = [
 //     {
@@ -105,7 +103,6 @@ import {getCategories} from "@/queries/categories";
 const HomePage = async() => {
     const courses = await getCourses();
     const categories = await getCategories();
-    console.log(categories);
     return (
         <>
             <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 grainy">
@@ -155,7 +152,7 @@ const HomePage = async() => {
                     <SectionTitle>Categories</SectionTitle>
 
                     <Link
-                        href={""}
+                        href={"/categories"}
                         className=" text-sm font-medium  hover:opacity-80 flex items-center gap-1"
                     >
                         Browse All <ArrowRightIcon className="h-4 w-4" />
@@ -175,8 +172,8 @@ const HomePage = async() => {
                 <div className="flex items-center justify-between">
                     <SectionTitle>Courses</SectionTitle>
                     <Link
-                        href={""}
-                        className=" text-sm font-medium  hover:opacity-80 flex items-center gap-1"
+                        href={"/courses"}
+                        className="text-sm font-medium  hover:opacity-80 flex items-center gap-1"
                     >
                         Browse All <ArrowRightIcon className="h-4 w-4" />
                     </Link>

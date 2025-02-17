@@ -62,9 +62,7 @@ const MainNav = ({ items, children }) => {
                             <DropdownMenuItem className="cursor-pointer">
                                 <Link href={'/instructor'}>Instructor</Link>
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="cursor-pointer">
-                                <Link href={'/logout'}>Logout</Link>
-                            </DropdownMenuItem>
+                            
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
