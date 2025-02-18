@@ -50,7 +50,8 @@ const courses = [
         thumbnail: "/assets/images/categories/music.jpg",
     },
 ];
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
+    console.log(testimonials);
     return (
         <section className="pb-8 md:pb-12 lg:pb-24">
         <div className="container">
@@ -64,7 +65,7 @@ const Testimonials = () => {
                 <CarouselPrevious />
                 <CarouselNext />
                 <CarouselContent className="py-4">
-                    {courses.map((course) => (
+                    {testimonials.map((course) => (
                         <CarouselItem
                             key={course.id}
                             className="md:basis-1/2 lg:basis-1/3"

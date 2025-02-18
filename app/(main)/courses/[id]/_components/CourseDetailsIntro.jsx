@@ -13,7 +13,7 @@ const CourseDetailsIntro = ({title,subtitle,thumbnail}) => {
                             <h1 className="px-6 text-lg text-gray-600 font-inter">
                                 {title}
                             </h1>
-                            <p className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
+                            <p className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-4xl lg:leading-tight font-pj">
                                 <span className="relative inline-flex sm:inline">
                                     <span className="bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] blur-lg filter opacity-30 w-full h-full absolute inset-0"></span>
                                     <span className="relative"> {subtitle} </span>
@@ -43,10 +43,10 @@ const CourseDetailsIntro = ({title,subtitle,thumbnail}) => {
                                 <div className="lg:max-w-3xl lg:mx-auto">
                                     <Image
                                         className="w-full rounded-lg"
-                                        width={768}
-                                        height={463}
+                                        width={750}
+                                        height={447}
                                         src={`/assets/images/courses/${thumbnail}`}
-                                        alt=""
+                                        alt={subtitle}
                                     />
                                 </div>
                             </div>
