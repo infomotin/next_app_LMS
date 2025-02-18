@@ -33,7 +33,7 @@ export async function getCourses() {
 export async function getCoursesDetails(id) {
     console.log('inside getCoursesDetails:',id);
     try {
-        const course = await Course.findById(id).select(["title", "subtitle", "thumbnail","modules","instructor","category","price"])
+        const course = await Course.findById(id)
         .populate({
             path: "category",
             model: Category
@@ -56,6 +56,6 @@ export async function getCoursesDetails(id) {
         }).lean();
         return replaceMongoIdInObject(course);
     } catch (error) {
-        console.log(error); 
+        console.log(error);
     } 
 }

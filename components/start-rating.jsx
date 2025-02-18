@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const StartRating = ({ rating }) => {
     const ratings = new Array(rating).fill(0);
-    console.log(ratings);
+    // console.log(ratings);
     return (
         <div>
             {ratings.map((rating, index) => (

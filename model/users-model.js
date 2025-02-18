@@ -1,51 +1,49 @@
-import mongoose from "mongoose";
+import mongoose,{Schema} from "mongoose";
 
-const userSchema = new mongoose.Schema({
-    firstName: {
+const userSchema = new Schema({
+    firstName:{
+        required: true,
+        type: String
+    },
+    lastName:{
+        required: true,
+        type: String
+    },
+    password:{
+        required: true,
+        type: String
+    },
+    email:{
+        required: true,
+        type: String
+    },
+    role:{
+        required: true,
+        type: String
+    },
+    phone:{
+        required: false,
+        type: String
+    },
+    bio:{
+        required: false,
         type: String,
-        required: true
+        default: ""
     },
-    lastName: {
+    socialMedia:{
+        required: false,
+        type: Object
+    },   
+  
+    profilePicture:{
+        required: false,
         type: String,
-        required: true
+        default: "https://i.pravatar.cc"
     },
-    phone: {
+    designation:{
+        required: false,
         type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: false
-    },
-    role: {
-        type: String,
-        required: true
-    },
-    __v: {
-        type: Number,
-        required: true
-    },
-    bio: {
-        type: String,
-        required: false
-    },
-    socialMedia: {
-        type:Object,
-        required: false
-    },
-    profilePicture: {
-        type: String,
-        required: false
-    },
-    designation: {
-        type: String,
-        required: false
-    },
-   
-    }, { timestamps: true });
-
-export const User = mongoose.models.User ?? mongoose.model("User", userSchema);
+        default: ""
+    } ,
+});
+export const User = mongoose.models.User ?? mongoose.model("User",userSchema);
