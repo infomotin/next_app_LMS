@@ -3,7 +3,7 @@ import { Presentation } from "lucide-react";
 import { UsersRound } from "lucide-react";
 import { Star } from "lucide-react";
 import { MessageSquare } from "lucide-react";
-const CourseInstractor = () => {
+const CourseInstractor = ({course}) => {
     return (
         <div className="bg-gray-50 rounded-md p-8">
                             <div className="md:flex md:gap-x-5 mb-8">

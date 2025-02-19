@@ -7,7 +7,7 @@ import {formatMyDate} from '@/lib/date';
 const CourseDetails = ({course}) => {
     // console.log(course);
     const lastModified = formatMyDate(course.modifiedOn);
-    console.log(lastModified);
+    // console.log(lastModified);
     return (
         
         <section className="py-8 md:py-12 lg:py-24">
@@ -48,17 +48,15 @@ const CourseDetails = ({course}) => {
                     </TabsList>
 
                     <TabsContent value="overview">
-                        {/* each tab content can be independent component */}
-                        <CourseOverview />
+                        <CourseOverview course={course} />
                     </TabsContent>
 
                     <TabsContent value="curriculum">
-                        <CoursesCurriculum />
+                        <CoursesCurriculum course={course} />
                     </TabsContent>
                     
                     <TabsContent value="instructor">
-                        {/* each tab content can be independent component */}
-                       <CourseInstractor />
+                       <CourseInstractor course={course}/>
                     </TabsContent>
 
                 </Tabs>
