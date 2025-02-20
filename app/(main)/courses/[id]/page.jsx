@@ -6,9 +6,7 @@ import { getCoursesDetails } from "@/queries/courses";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/lib/convertData";
 
 const SingleCoursePage = async ({ params:{id}}) => {
-    // console.log(id);
     const course = await getCoursesDetails(id);
-    // console.log(course);
     return (
         <>
             <CourseDetailsIntro  

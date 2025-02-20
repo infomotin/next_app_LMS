@@ -20,9 +20,6 @@ const CoursesCurriculum = ({ course }) => {
         return total + module.duration;
     }, 0);
 
-
-    // console.log(totalCourseDuration);
-
     return (
         <>
             <div className="flex gap-x-5 items-center justify-center flex-wrap mt-4 mb-6 text-gray-600 text-sm">

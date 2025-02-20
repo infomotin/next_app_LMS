@@ -5,9 +5,7 @@ import CoursesCurriculum from "./CoursesCurriculum";
 import CourseInstractor from './CourseInstractor';
 import {formatMyDate} from '@/lib/date';
 const CourseDetails = ({course}) => {
-    // console.log(course);
     const lastModified = formatMyDate(course.modifiedOn);
-    // console.log(lastModified);
     return (
         
         <section className="py-8 md:py-12 lg:py-24">

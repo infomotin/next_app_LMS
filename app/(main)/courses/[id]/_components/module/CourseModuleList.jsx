@@ -11,7 +11,6 @@ import { NotepadText } from "lucide-react";
 import { FileQuestion } from "lucide-react";
 import CourseLessonList from "./CourseLessonList";
 const CourseModuleList = ({module}) => {
-    // console.log(module);
     return (
         <>
         <AccordionItem className="border-none" value="item-1">
