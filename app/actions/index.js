@@ -1,14 +1,13 @@
 'use server'
-import  {singIn}  from "@/auth"
+import { signIn } from "@/auth" 
 
-export async function credentialLogin(formData) {
+export async function ceredntialLogin(formData){
     try {
-        const credentials = {
+        const response = await signIn("credentials", {
             email: formData.get("email"),
             password: formData.get("password"),
-            redirect: false
-        }
-       const response = await singIn("credentials", credentials);
+            redirect:false
+        })
         return response;
     } catch (error) {
         throw new Error(error);
