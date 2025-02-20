@@ -35,7 +35,7 @@ const Testimonials = ({ testimonials }) => {
                                     <div className="flex items-center gap-4">
                                         <Image
                                             alt={`Avatar of ${testimonial?.user?.first_name}`}
-                                            // src={testimonial?.user?.profile_picture}
+                                            src={testimonial?.user?.profile_picture}
                                             width="56"
                                             height="56"
                                             className="size-14 rounded-full object-cover"

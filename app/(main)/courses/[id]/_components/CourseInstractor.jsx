@@ -10,7 +10,7 @@ const CourseInstractor = async ({course}) => {
     const fullName = course?.instructor?.firstName + " " + course?.instructor?.lastName;
 
     const courseDetailsByInstructor = await getCourseDetailsByInstructor(course?.instructor?._id.toString());
-    console.log(courseDetailsByInstructor);
+    // console.log(courseDetailsByInstructor);
     return (
         <div className="bg-gray-50 rounded-md p-8">
                             <div className="md:flex md:gap-x-5 mb-8">
