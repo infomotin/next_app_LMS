@@ -1,4 +1,3 @@
-
 "use client"
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -19,44 +18,38 @@ export function SignupForm({role}) {
 
    async function onSubmit(event) {
     event.preventDefault();
-    
+
     try {
-      const formData = new FormData(event.target);
-      const first_name = formData.get("first-name");
-      const last_name = formData.get("last-name");
+      const formData = new FormData(event.currentTarget);
+      const firstName = formData.get("first-name");
+      const lastName = formData.get("last-name");
       const email = formData.get("email");
-      const phone = formData.get("phone");
       const password = formData.get("password");
-      const userRole = ((role==="student")||(role==="instructor"))? role:"Student";
+      const phone = formData.get("phone");
+
+      const userRole = ((role === "student" ) || (role === "instructor")) ? role : "student";
 
       const response = await fetch("/api/register", {
-        method: "POST",
+        method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          first_name,
-          last_name,
+          firstName,
+          lastName,
           email,
-          phone,
           password,
-          userRole
+          phone,
+          userRole 
         })
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to create user");
-      }
-      response.status === 201 && router.push("/login");
-      const data = await response.json();
-      console.log(data);
-      return data; 
-
-    } catch (error) {
-      console.error("Error submitting form:", error); 
-      return null;
-    }
-  };
+      response.status === 201 && router.push("/login")
+      
+    } catch (e) {
+      console.log(e.message);
+    } 
+  }
 
   return (
     <Card className="mx-auto max-w-sm">
@@ -102,7 +95,7 @@ export function SignupForm({role}) {
               type="phone"
               name="phone"
                 placeholder="01xxx-xxxxxx" 
-              mask="(+880) 1xxx-xxxxxx"
+              
             />
           </div>
           <div className="grid gap-2">

@@ -39,7 +39,7 @@ const userSchema = new Schema({
     profilePicture:{
         required: false,
         type: String,
-        default: "https://i.pravatar.cc"
+        default: "https://github.com/shadcn.png"
     },
     designation:{
         required: false,
