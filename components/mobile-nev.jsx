@@ -38,10 +38,10 @@ const MobileNav = ({ items, children }) => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-56 space-y-2 mt-2">
                             <DropdownMenuItem className="cursor-pointer">
-                                <Link href={'/student'}>Student</Link>
+                                <Link href={'/register/student'}>Student</Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem className="cursor-pointer">
-                                <Link href={'/instructor'}>Instructor</Link>
+                                <Link href={'/register/instructor'}>Instructor</Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem className="cursor-pointer">
                                 <Link href={'/logout'}>Logout</Link>
