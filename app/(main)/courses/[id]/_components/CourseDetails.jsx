@@ -4,7 +4,9 @@ import CourseOverview from "./CourseOverview";
 import CoursesCurriculum from "./CoursesCurriculum";
 import CourseInstractor from './CourseInstractor';
 import {formatMyDate} from '@/lib/date';
+import Image from 'next/image';
 const CourseDetails = ({course}) => {
+    console.log(course);
     const lastModified = formatMyDate(course.modifiedOn);
     return (
         
@@ -22,10 +24,12 @@ const CourseDetails = ({course}) => {
             {/*  */}
             <div className="flex sm:items-center gap-5 flex-col sm:flex-row sm:gap-6 md:gap-20 mt-6">
                 <div className="flex items-center gap-2">
-                    <img
+                    <Image
                         className="w-[40px] h-[40px] rounded-full"
-                        src="https://avatars.githubusercontent.com/u/47516621?v=4"
+                        src={course?.instructor?.profilePicture}
                         alt="Ariyan"
+                        width={40}
+                        height={40}
                     />
                     <p className="font-bold">{course?.instructor?.firstName} {course?.instructor?.lastName}</p>
                 </div>
