@@ -18,7 +18,7 @@ export const POST = async (request) => {
         password:hashedPassword,
         role: userRole
     }
-   console.log(newUser);
+//    console.log(newUser);
 
     try {
         await User.create(newUser);
