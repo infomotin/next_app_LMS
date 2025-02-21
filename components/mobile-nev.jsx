@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLockBody } from '@/hooks/use-lock-body';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
@@ -7,8 +7,16 @@ import { Menu } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
+
 
 const MobileNav = ({ items, children }) => {
+    const { data: session } = useSession();
+    const [loginSession, setLoginSession] = useState(null);
+    useEffect(() => {
+        console.log("session", session);
+        setLoginSession(session);
+    }, [session]);
     useLockBody();
     return (
         <div className={cn("fixed inset-0 top-16 z-30 grid h-[calc(100vh-4rem)]  grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md animate-in slide-in-from-bottom-80 md:hidden")}>
@@ -25,29 +33,49 @@ const MobileNav = ({ items, children }) => {
                     }
                 </nav>
                 <div className='items-center gap-3 flex lg:hidden'>
-                    <Link href={'/login'} className={cn(buttonVariants({ size: "sm" }), "px-4")}>
-                        Login
-                    </Link>
+                    {
+                        !loginSession && (
+                            <Link href={'/login'} className={cn(buttonVariants({ size: "sm" }), "px-4")}>
+                                Login
+                            </Link>
+                        )
+                    }
+
                     <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="outline" size="sm">
-                                <Avatar>
-                                    <AvatarFallback>Register </AvatarFallback>
-                                </Avatar>
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-56 space-y-2 mt-2">
-                            <DropdownMenuItem className="cursor-pointer">
-                                <Link href={'/register/student'}>Student</Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="cursor-pointer">
-                                <Link href={'/register/instructor'}>Instructor</Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="cursor-pointer">
-                                <Link href={'/logout'}>Logout</Link>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
+                        {
+                            !loginSession && (
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="outline" size="sm">
+                                        <Avatar>
+                                            <AvatarFallback>Register </AvatarFallback>
+                                        </Avatar>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                            )
+                        }
+
+                        {
+                            loginSession && (
+                                <DropdownMenuContent align="end" className="w-56 space-y-2 mt-2">
+                                    <DropdownMenuItem className="cursor-pointer">
+                                        <Link href={'/register/student'}>Student</Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="cursor-pointer">
+                                        <Link href={'/register/instructor'}>Instructor</Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="cursor-pointer">
+                                        <Link href='' onClick={(e) => {
+                                            e.preventDefault();
+                                            signOut();
+                                        }}>Logout</Link>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            )
+                        }
+
                     </DropdownMenu>
+
+
                 </div>
 
             </div>

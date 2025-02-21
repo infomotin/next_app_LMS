@@ -2,105 +2,15 @@
 import Element from "@/components/element";
 import { SectionTitle } from "@/components/section-title";
 import Support from "@/components/support";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import CategoryCard from "@/app/(main)/categorys/_components/CategoryCard";
 import CourseCard from "@/app/(main)/courses/_components/CourseCard";
-import {getCategories} from "@/queries/categories";
-import {getCourses} from "@/queries/courses";  
-
-// const categories = [
-//     {
-//         id: 1,
-//         title: "Design",
-//         thumbnail: "/assets/images/categories/design.jpg",
-//     },
-
-//     {
-//         id: 3,
-//         title: "Development",
-//         thumbnail: "/assets/images/categories/development.jpg",
-//     },
-//     {
-//         id: 4,
-//         title: "Marketing",
-//         thumbnail: "/assets/images/categories/marketing.jpg",
-//     },
-//     {
-//         id: 5,
-//         title: "IT & Software",
-//         thumbnail: "/assets/images/categories/it_software.jpg",
-//     },
-//     {
-//         id: 6,
-//         title: "Personal Development",
-//         thumbnail: "/assets/images/categories/personal_development.jpg",
-//     },
-//     {
-//         id: 7,
-//         title: "Business",
-//         thumbnail: "/assets/images/categories/programming.jpg",
-//     },
-//     {
-//         id: 8,
-//         title: "Photography",
-//         thumbnail: "/assets/images/categories/photography.jpg",
-//     },
-//     {
-//         id: 9,
-//         title: "Music",
-//         thumbnail: "/assets/images/categories/music.jpg",
-//     },
-// ];
-
-
-//     {
-//         id: 1,
-//         title: "Design",
-//         thumbnail: "/assets/images/categories/design.jpg",
-//     },
-
-//     {
-//         id: 3,
-//         title: "Development",
-//         thumbnail: "/assets/images/categories/development.jpg",
-//     },
-//     {
-//         id: 4,
-//         title: "Marketing",
-//         thumbnail: "/assets/images/categories/marketing.jpg",
-//     },
-//     {
-//         id: 5,
-//         title: "IT & Software",
-//         thumbnail: "/assets/images/categories/it_software.jpg",
-//     },
-//     {
-//         id: 6,
-//         title: "Personal Development",
-//         thumbnail: "/assets/images/categories/personal_development.jpg",
-//     },
-//     {
-//         id: 7,
-//         title: "Business",
-//         thumbnail: "/assets/images/categories/business.jpg",
-//     },
-//     {
-//         id: 8,
-//         title: "Photography",
-//         thumbnail: "/assets/images/categories/photography.jpg",
-//     },
-//     {
-//         id: 9,
-//         title: "Music",
-//         thumbnail: "/assets/images/categories/music.jpg",
-//     },
-// ];
-const HomePage = async() => {
+import { getCategories } from "@/queries/categories";
+import { getCourses } from "@/queries/courses";
+const HomePage = async () => {
     const courses = await getCourses();
     const categories = await getCategories();
     return (
@@ -166,7 +76,7 @@ const HomePage = async() => {
                     })}
                 </div>
             </section>
-            
+
             {/* Courses */}
             <section id="courses" className="container space-y-6   md:py-12 lg:py-24">
                 <div className="flex items-center justify-between">
@@ -187,7 +97,7 @@ const HomePage = async() => {
                 </div>
             </section>
             <Support />
-            
+
         </>
     );
 };
