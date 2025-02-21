@@ -21,8 +21,8 @@ export function SignupForm({role}) {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const firstName = formData.get("first-name");
-      const lastName = formData.get("last-name");
+      const first_Name = formData.get("first-name");
+      const last_Name = formData.get("last-name");
       const email = formData.get("email");
       const password = formData.get("password");
       const phone = formData.get("phone");
@@ -35,8 +35,8 @@ export function SignupForm({role}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName,
-          lastName,
+          first_Name,
+          last_Name,
           email,
           password,
           phone,

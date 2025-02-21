@@ -1,11 +1,11 @@
 import mongoose,{Schema} from "mongoose";
 
 const userSchema = new Schema({
-    firstName:{
+    first_Name:{
         required: true,
         type: String
     },
-    lastName:{
+    last_Name:{
         required: true,
         type: String
     },
@@ -24,19 +24,21 @@ const userSchema = new Schema({
     },
     phone:{
         required: false,
-        type: String
+        type: String,
+        default:""
     },
     bio:{
         required: false,
         type: String,
         default: ""
     },
-    socialMedia:{
+    social_Media:{
         required: false,
-        type: Object
+        type: Object,
+        default:""
     },   
   
-    profilePicture:{
+    profile_Picture:{
         required: false,
         type: String,
         default: "https://github.com/shadcn.png"

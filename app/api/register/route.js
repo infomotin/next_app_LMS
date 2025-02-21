@@ -4,15 +4,15 @@ import bcrypt from "bcryptjs";
 import { User } from "@/model/users-model";
 
 export const POST = async (request) => {
-    const {firstName,lastName, email, password,phone, userRole} = await request.json();
+    const {first_Name,last_Name, email, password,phone, userRole} = await request.json();
     //console.log(firstName,lastName, email, password, userRole);
 
     await connect();
     const hashedPassword = await bcrypt.hash(password,5);
 
     const newUser = {
-        firstName,
-        lastName,
+        first_Name,
+        last_Name,
         email,
         phone,
         password:hashedPassword,
