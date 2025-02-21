@@ -13,6 +13,7 @@ const SingleCoursePage = async ({ params:{id}}) => {
                 title={course?.title}
                 subtitle={course?.subtitle}
                 thumbnail={course?.thumbnail}
+                price={course}
             />
             <CourseDetails course={course} />
             {

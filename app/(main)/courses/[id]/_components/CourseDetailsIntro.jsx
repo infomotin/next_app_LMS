@@ -3,7 +3,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
-const CourseDetailsIntro = ({title,subtitle,thumbnail}) => {
+import EnrollCourse from "@/components/enroll-course";
+const CourseDetailsIntro = ({ title, subtitle, thumbnail, price }) => {
     return (
         <div className="overflow-x-hidden  grainy">
             <section className="pt-12  sm:pt-16">
@@ -21,9 +22,7 @@ const CourseDetailsIntro = ({title,subtitle,thumbnail}) => {
                             </p>
 
                             <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
-                                <Link href="" className={cn(buttonVariants({ size: "lg" }))}>
-                                    Enroll Now
-                                </Link>
+                                <EnrollCourse />
                                 <Link
                                     href=""
                                     className={cn(
@@ -31,6 +30,14 @@ const CourseDetailsIntro = ({title,subtitle,thumbnail}) => {
                                     )}
                                 >
                                     See Intro
+                                </Link>
+                                <Link
+                                    href=""
+                                    className={cn(
+                                        buttonVariants({ variant: "destructive", size: "lg" })
+                                    )}
+                                >
+                                    Prices Details :{(price?.price)}
                                 </Link>
                             </div>
                         </div>

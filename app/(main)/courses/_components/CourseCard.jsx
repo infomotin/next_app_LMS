@@ -5,6 +5,7 @@ import { BookOpen } from "lucide-react";
 import { formatPrice } from "@/lib/formatPrice";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import EnrollCourse from "@/components/enroll-course";
 
 const CourseCard = ({index, course}) => {
     // console.log(course?.modules?.duration);
@@ -44,13 +45,7 @@ const CourseCard = ({index, course}) => {
                             {formatPrice(course?.price)}
                         </p>
 
-                        <Button
-                            variant="ghost"
-                            className="text-xs text-sky-700 h-7 gap-1"
-                        >
-                            Enroll
-                            <ArrowRight className="w-3" />
-                        </Button>
+                        <EnrollCourse asLink={true}/>
                     </div>
                 </div>
             </div>
