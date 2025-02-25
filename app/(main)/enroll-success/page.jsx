@@ -48,8 +48,8 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
 
 
     //send email to user and admin and instatructor about the new enrollment
-    await sendEmailNodemailer(customEmail, "New Enrollment", `Hello ${customInfo} You Successful enrolled ${productInfo} Course.`);
-    await sendEmail(customEmail,"New Enrollment", `Hello ${customInfo} You Successful enrolled ${productInfo} Course.`);
+    await sendEmailNodemailer(customEmail, "Email Template for Enrollment", `Hello ${customInfo} You Successful enrolled ${productInfo} Course.`);
+    await sendEmail(customEmail,"Email Template for Enrollment", `Hello ${customInfo} You Successful enrolled ${productInfo} Course.`);
 
 
   }else {
