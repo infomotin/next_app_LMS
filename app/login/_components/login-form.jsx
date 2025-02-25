@@ -26,7 +26,7 @@ export function LoginForm() {
       const response = await ceredntialLogin(formData);
       console.log("Called", response);
       if (!!response.error) {
-        console.log(response.error)
+        // console.log(response.error)
         setError(response.error);
       } else {
         router.push("/courses")

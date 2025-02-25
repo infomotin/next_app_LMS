@@ -33,7 +33,7 @@ export async function getCourses() {
 }
 
 export async function getCoursesDetails(id) {
-    console.log('inside getCoursesDetails:',id);
+    // console.log('inside getCoursesDetails:',id);
     try {
         const course = await Course.findById(id)
         .populate({

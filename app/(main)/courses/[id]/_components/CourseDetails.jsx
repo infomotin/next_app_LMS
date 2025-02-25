@@ -6,7 +6,7 @@ import CourseInstractor from './CourseInstractor';
 import {formatMyDate} from '@/lib/date';
 import Image from 'next/image';
 const CourseDetails = ({course}) => {
-    console.log(course);
+    // console.log(course);
     const lastModified = formatMyDate(course.modifiedOn);
     return (
         

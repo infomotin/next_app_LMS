@@ -3,10 +3,21 @@ import { headers } from "next/headers";
 const CURRENCY = "USD";
 import { formatAmountForStripe } from "@/lib/stripe-helpers";
 import { stripe } from "@/lib/stripe";
+import {getCoursesDetails} from "@/queries/courses";
 export async function createCheckoutSession(data) {
 
     const ui_mode = "hosted";
     const origin = (await headers()).get("origin");
+    const courseId = data.get("courseId");
+    const course = await getCoursesDetails(courseId);
+    console.log('from enrole page',course);
+    if(!course) return new Error(`Course not found`);
+
+    //course name and course price
+
+    const courseName = course?.title;
+    const coursePrice = course?.price;
+
     const checkoutSession = await stripe.checkout.sessions.create({
         mode: "payment",
         submit_type: "auto",
@@ -16,14 +27,14 @@ export async function createCheckoutSession(data) {
                 price_data: {
                     currency: CURRENCY,
                     product_data: {
-                        name: "EASYLEARNINGs",
+                        name: courseName
                     },
-                    unit_amount: formatAmountForStripe(120, CURRENCY),
+                    unit_amount: formatAmountForStripe(coursePrice, CURRENCY),
                 },
             },
         ],
         ...(ui_mode === "hosted" && {
-            success_url: `${origin}/enroll-success?session_id={CHECKOUT_SESSION_ID}&courseId=123456`,
+            success_url: `${origin}/enroll-success?session_id={CHECKOUT_SESSION_ID}&courseId=${courseId}`,
             cancel_url: `${origin}/courses`,
         }),
         ui_mode
@@ -31,7 +42,7 @@ export async function createCheckoutSession(data) {
     });
     return {
         client_secret: checkoutSession.client_secret,
-        url: checkoutSession.url,
+        url: checkoutSession.url, 
     };
 
 

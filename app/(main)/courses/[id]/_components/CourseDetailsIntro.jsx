@@ -22,7 +22,7 @@ const CourseDetailsIntro = ({ title, subtitle, thumbnail, price }) => {
                             </p>
 
                             <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
-                                <EnrollCourse />
+                                <EnrollCourse courseId={price?.id}/>
                                 <Link
                                     href=""
                                     className={cn(
