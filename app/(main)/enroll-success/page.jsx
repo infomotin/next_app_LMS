@@ -7,6 +7,7 @@ import { getCoursesDetails } from "@/queries/courses";
 import { getUserByEmail } from "@/queries/users";
 import { stripe } from "@/lib/stripe";
 import {sendEmailNodemailer,sendEmail} from "@/lib/email";
+import {enrollmentsForCourse} from "@/queries/enrollments";
 
 const Success = async ({ searchParams: { session_id, courseId } }) => {
   console.log(session_id, courseId);
@@ -45,6 +46,12 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
 
   if (paymentsStatus == "succeeded") {
     //update enrolled course table data 
+    const enrolled = await enrollmentsForCourse(
+      course?.id,
+      loginUserInfo?.id,
+      "Stripe"
+    );
+    console.log(enrolled);
 
 
     //send email to user and admin and instatructor about the new enrollment
