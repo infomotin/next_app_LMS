@@ -24,7 +24,7 @@ export function LoginForm() {
     try {
       const formData = new FormData(event.currentTarget);
       const response = await ceredntialLogin(formData);
-      console.log("Called", response);
+      // console.log("Called", response);
       if (!!response.error) {
         // console.log(response.error)
         setError(response.error);
