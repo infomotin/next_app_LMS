@@ -8,9 +8,9 @@ const menu = [
 	{ label: "Enrolled Courses", href: "/account/enrolled-courses" },
 ];
 
-function Menu({profile,auth}) {
+function Menu() {
 
-	console.log('form',profile);
+	// console.log('form',profile);
 	const pathname = usePathname();
 	return (
 		<ul className="list-none sidebar-nav mb-0 mt-3" id="navmenu-nav">

@@ -8,7 +8,6 @@ import Link from "next/link";
 import Menu from "./account-menu";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-
 import { getUserByEmail } from "@/queries/users";
 
 const AccountSidebar = async () => {
@@ -55,11 +54,14 @@ const AccountSidebar = async () => {
                                 <p className="text-slate-400">
                                     {loginUserInfo?.email}
                                 </p>
+                                <p className="text-slate-700 text-sm text-bold">
+                                    As: {loginUserInfo?.role}
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div className="border-t border-gray-100 dark:border-gray-700">
-                        <Menu profile={loginUserInfo} auth={userSession}/>
+                        <Menu />
                     </div>
                 </div>
             </div>
