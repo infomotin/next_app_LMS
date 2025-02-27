@@ -21,8 +21,8 @@ export function SignupForm({role}) {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const first_Name = formData.get("first-name");
-      const last_Name = formData.get("last-name");
+      const firstName = formData.get("firstName");
+      const lastName = formData.get("lastName");
       const email = formData.get("email");
       const password = formData.get("password");
       const phone = formData.get("phone");
@@ -35,8 +35,8 @@ export function SignupForm({role}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          first_Name,
-          last_Name,
+          firstName,
+          lastName,
           email,
           password,
           phone,
@@ -71,11 +71,11 @@ export function SignupForm({role}) {
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="first-name">First name</Label>
-              <Input id="first-name" name="first-name" placeholder="Max" required />
+              <Input id="firstName" name="firstName" placeholder="Max" required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="last-name">Last name</Label>
-              <Input id="last-name" name="last-name" placeholder="Robinson" required />
+              <Input id="lastName" name="lastName" placeholder="Robinson" required />
             </div>
           </div>
           <div className="grid gap-2">

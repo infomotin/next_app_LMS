@@ -1,11 +1,11 @@
 import mongoose,{Schema} from "mongoose";
 
 const userSchema = new Schema({
-    first_Name:{
+    firstName:{
         required: true,
         type: String
     },
-    last_Name:{
+    lastName:{
         required: true,
         type: String
     },
