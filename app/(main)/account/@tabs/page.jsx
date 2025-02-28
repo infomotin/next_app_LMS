@@ -26,11 +26,11 @@ async function Profile() {
 			<PersonalDetails userInfo={loginUserInfo} />
 			<div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 mt-[30px]">
 				<div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
-					<ContractInfo />
+					<ContractInfo userInfo={loginUserInfo}/>
 					{/*end col*/}
-					<ChangePassword />
+					<ChangePassword userInfo={loginUserInfo}/>
 					{/*end col*/}
-				</div>
+				</div> 
 				{/*end row*/}
 			</div>
 		</>

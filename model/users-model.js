@@ -38,7 +38,7 @@ const userSchema = new Schema({
         default:""
     },   
   
-    profile_Picture:{
+    profilePicture:{
         required: false,
         type: String,
         default: "https://github.com/shadcn.png"
